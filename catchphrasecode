@@ -1,0 +1,34 @@
+import random
+
+class catchphrase():
+    def __init__(self, adverbs, adjectives, nouns):
+        self.adverbs = adverbs
+        self.adjectives = adjectives
+        self.nouns = nouns
+        
+    def get_catchphrase(self):
+        num_adv = random.randint(0, len(self.adverbs)-1)
+        num_adj = random.randint(0, len(self.adjectives)-1)
+        num_noun = random.randint(0, len(self.nouns)-1)
+        return self.adverbs[num_adv] + " " + self.adjectives[num_adj] + " " + self.nouns[num_noun]
+    
+    def add_adv(self, adverb):
+        self.adverbs.append(adverb)
+        return catchphrase.get_catchphrase(self)
+    
+    def add_adj(self, adjective):
+        self.adjectives.append(adjective)
+        return catchphrase.get_catchphrase(self)
+    
+    def add_noun(self, noun):
+        self.nouns.append(noun)
+        return catchphrase.get_catchphrase(self)
+        
+c = catchphrase(['surprisingly', 'jovially', 'boldly', 'keenly', 'jaggedly'],
+                ['cool','exciting','fantastic','incredible','holy','pretty','snazzy','petrifying','electrifying','terrifying'
+                 'neverending','satisfying','amazing','adequate','average','exceptional','outstanding','breathtaking',
+                 'perfect','wild','priceless','gorgeous','terrific','rad','neat','crispy'],
+                ['beans','guacamole','kale','tomatoes','olives','cherries','watermelon','mangoes','cucumbers','squash',
+                 'zucchini','celery','salsa','peaches','oats','beets','carrots','raspberries','potatoes','yams',
+                 'radishes','onions',''])
+c.get_catchphrase()
